@@ -1,6 +1,6 @@
  {
     "name": "The Daily TurboFilter",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Позволяет скрывать нежелательное содержимое на DTF",
     "manifest_version": 2,
     "permissions": [
