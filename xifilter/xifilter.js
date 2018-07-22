@@ -2,14 +2,21 @@ XiFilter = window.XiFilter || {};
 
 XiFilter.userLinkIdRegex = /(?:\/u\/)([0-9]+)-/;
 XiFilter.hiddenStyleName = 'xi_hidden';
+XiFilter.filters = {
+    comments: {},
+    articles: {},
+    authors: {}
+};
+XiFilter.users = {};
 
-document.addEventListener('xiData', (e) => {
-    XiFilter.filters = e.detail.filters || {
-        comments: {},
-        articles: {},
-        authors: {}
-    };
-    XiFilter.users = e.detail.users || {};
+window.addEventListener("message", function(event) {
+    if (event.source == window &&
+        event.data.direction &&
+        event.data.direction == "from-content-script" && event.data.message.xiData) {
+            let xiData = event.data.message.xiData;
+        XiFilter.filters = xiData.filters || XiFilter.filters
+        XiFilter.users = xiData.users || XiFilter.users;
+    }
 });
 
 // Storage interaction code

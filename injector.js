@@ -29,19 +29,12 @@ document.addEventListener('inject', (e) => {
     }
 });
 
-let value = 42;
-
-
 document.addEventListener('loadXiData', (e) => {
     browser.storage.local.get(['filters', 'users'], function(result) {
-        try {
-            var event = new CustomEvent('xiData', {
-                detail: result
-            });
-            document.dispatchEvent(event);
-        } catch (e) {
-            console.error('Unable to load filters', e);
-        }
+        window.postMessage({
+            direction: "from-content-script",
+            message: {xiData: result}
+        }, "*");
     });
 });
 
