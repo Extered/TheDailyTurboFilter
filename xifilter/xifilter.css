@@ -1,0 +1,13 @@
+.vote--comment, .comments__item__content, .t-link, .entry_wrapper > .entry_header, .entry_wrapper > .entry_content {
+    transition: opacity 0.3s ease-in;
+}
+
+.xi_hidden > .vote--comment, .xi_hidden > .comments__item__content, .xi_hidden > .t-link,
+.xi_hidden > .entry_wrapper > .entry_header, .xi_hidden > .entry_wrapper > .entry_content {
+    opacity: 0.05;
+}
+
+.xi_hidden:hover > .vote--comment, .xi_hidden:hover > .comments__item__content, .xi_hidden:hover > .t-link,
+.xi_hidden:hover > .entry_wrapper > .entry_header, .xi_hidden:hover > .entry_wrapper > .entry_content {
+    opacity: 1;
+}

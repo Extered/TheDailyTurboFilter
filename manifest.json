@@ -1,0 +1,25 @@
+ {
+    "name": "The Daily TurboFilter",
+    "version": "0.1.0",
+    "description": "Позволяет скрывать нежелательное содержимое на DTF",
+    "manifest_version": 2,
+    "permissions": [
+      "activeTab",
+      "storage"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://dtf.ru/*"],
+        "run_at": "document_start",
+        "js": ["injector.js"]
+      }
+    ],
+    "web_accessible_resources": [
+      "airlock.js",
+      "xifilter/xifilter.js",
+      "xifilter/xifilter.css",
+      "xifilter/modules/module.xifilter_comments.js",
+      "xifilter/modules/module.xifilter_controls.js",
+      "xifilter/modules/module.xifilter_feed.js"
+    ]
+  }
