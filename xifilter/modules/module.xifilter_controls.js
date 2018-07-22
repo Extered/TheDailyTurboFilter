@@ -33,7 +33,7 @@ AirLock.interceptDefinition('class.Fabric', function() {
 });
 
 // Module defines actual controls
-AirLock.define('module.xifilter_controls', 'module.etc_controls, module.xifilter_controls_ajaxify', function(etc_controls, xiajaxify) {
+AirLock.define('module.xifilter_controls', 'module.etc_controls', function(etc_controls) {
     var self = this;
     self.init = function() {
         etc_controls.defineControl({
